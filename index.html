@@ -46,6 +46,13 @@
     </style>
 </head>
 <body>
+    <h1>Seat Reservation System</h1>
+
+    <label for="name">First Name:</label>
+    <input type="text" id="name" required><br>
+    <label for="surname">Last Name:</label>
+    <input type="text" id="surname" required><br><br>
+
     <label for="terminalSelect">Select Terminal:</label>
     <select id="terminalSelect">
         <option value="batangas">Batangas Grand Terminal</option>
@@ -60,5 +67,16 @@
         <option value="credit">Credit</option>
     </select><br><br>
 
+    <h3>Choose Seats:</h3>
+    <div id="seatGrid"></div><br>
+
+    <p id="fareDisplay">Total Fare: ₱0</p>
+    <p id="selectedSeats">Selected Seats: </p>
+
+    <button id="reserveButton">Reserve seats</button>
+
+    <div id="ticketDetails"></div>
+
+    <script src="script.js"></script>
 </body>
 </html>
