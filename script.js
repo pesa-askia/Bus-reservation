@@ -105,3 +105,28 @@ function reserveTicket() {
     	return;
 	}
 	
+	reservedSeats = reservedSeats.concat(selectedSeats);
+	localStorage.setItem('reservedSeats', JSON.stringify(reservedSeats));
+	const terminal = document.getElementById('terminalSelect').value;
+	const paymentMethod = document.getElementById('paymentSelect').value;
+	const ticketID = 'TICKET-' + Math.floor(Math.random() * 100000);
+	const ticket = `
+    	<div class="ticketDetails">
+        	<div class="ticketHeader">Ticket ID: ${ticketID}</div>
+        	<div>Name: ${name} ${surname}</div>
+        	<div>Terminal: ${terminal.charAt(0).toUpperCase() + terminal.slice(1)} SM Terminal</div>
+        	<div>Seats: ${selectedSeats.join(', ')}</div>
+        	<div>Payment Method: ${paymentMethod.charAt(0).toUpperCase() + paymentMethod.slice(1)}</div>
+        	<div>Fare: ₱${fares[terminal] * selectedSeats.length}</div>
+    	</div>
+    	<div class="reservedSeatText">Have a safe trip!</div>
+	`;
+	ticketDetails.innerHTML = ticket;
+	selectedSeats = [];
+	renderSeatGrid();
+	updateSelectedSeatsText();
+	updateFareDisplay();
+}
+document.getElementById('reserveButton').addEventListener('click', reserveTicket);
+renderSeatGrid();
+
