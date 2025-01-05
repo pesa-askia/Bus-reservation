@@ -122,3 +122,45 @@ function reserveTicket() {
             alert('Please provide your name, select at least one seat, and choose a schedule date.');
             return;
         }
+		reservedSeats = reservedSeats.concat(selectedSeats);
+        localStorage.setItem('reservedSeats', JSON.stringify(reservedSeats));
+
+        const terminal = document.getElementById('terminalSelect').value;
+        const busType = document.getElementById('busTypeSelect').value;
+        const additionalFeePerSeat = busType === 'ac' ? 50 : 0; // Add fee only for AC
+        const paymentMethod = document.getElementById('paymentSelect').value;
+        const totalFare = (fares[terminal] + additionalFeePerSeat) * selectedSeats.length;
+
+        const ticketID = 'TICKET-' + Math.floor(Math.random() * 100000);
+        const ticket = `
+            <div class="ticketDetails">
+                <div class="ticketHeader">Ticket ID: ${ticketID}</div>
+                <div>Name: ${name} ${surname}</div>
+                <div>Terminal: ${terminal.charAt(0).toUpperCase() + terminal.slice(1)} SM Terminal</div>
+                <div>Seats: ${selectedSeats.join(', ')}</div>
+                <div>Bus Type: ${busType === 'ac' ? 'Air Condition' : 'Ordinary'}</div>
+                <div>Payment Method: ${paymentMethod.charAt(0).toUpperCase() + paymentMethod.slice(1)}</div>
+                <div>Schedule Date: ${scheduleDate}</div>
+                <div>Fare: ₱${totalFare}</div>
+            </div>
+            <div class="reservedSeatText">Have a safe trip!</div>
+        `;
+        ticketDetails.innerHTML = ticket;
+
+        selectedSeats = [];
+        renderSeatGrid();
+        updateSelectedSeatsText();
+		updateFareDisplay();
+
+        // Clear user details automatically after reservation
+        document.getElementById('name').value = '';
+        document.getElementById('surname').value = '';
+        document.getElementById('terminalSelect').selectedIndex = 0;
+        document.getElementById('busTypeSelect').selectedIndex = 0;
+        document.getElementById('paymentSelect').selectedIndex = 0;
+        document.getElementById('scheduleDate').value = '';
+    }
+}
+
+reserveButton.addEventListener('click', reserveTicket);
+renderSeatGrid();
