@@ -99,6 +99,7 @@ body {
  margin-top: 20px;
  font-style: italic;
  font-weight: bold; /* Make text bold */
+ text-align: center;
 } 
 h1 {
     text-align: center;

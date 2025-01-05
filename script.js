@@ -136,11 +136,17 @@ function reserveTicket() {
             <div class="ticketDetails">
                 <div class="ticketHeader">Ticket ID: ${ticketID}</div>
                 <div>Name: ${name} ${surname}</div>
+				<br>
                 <div>Terminal: ${terminal.charAt(0).toUpperCase() + terminal.slice(1)} SM Terminal</div>
+				<br>
                 <div>Seats: ${selectedSeats.join(', ')}</div>
+				<br>
                 <div>Bus Type: ${busType === 'ac' ? 'Air Condition' : 'Ordinary'}</div>
+				<br>
                 <div>Payment Method: ${paymentMethod.charAt(0).toUpperCase() + paymentMethod.slice(1)}</div>
-                <div>Schedule Date: ${scheduleDate}</div>
+                <br>
+				<div>Schedule Date: ${scheduleDate}</div>
+				<br>
                 <div>Fare: ₱${totalFare}</div>
             </div>
             <div class="reservedSeatText">Have a safe trip!</div>
