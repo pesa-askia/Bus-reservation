@@ -1,44 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Seat Reservation</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seat Reservation</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        h1 {
+            text-align: center;
+            font-size: 3em;
+        }
+
+        p {
+            text-align: center;
+            font-size: 1.5em;
+        }
+    </style>
 </head>
 <body>
-<h1>Basta Bus!</h1>
-<div class="container">
-<!-- Left Section -->
-<div class="box left-section">
-<h3>User Details</h3>
-<label for="name">First Name:</label>
-<input type="text" id="name" required><br>
-<label for="surname">Last Name:</label>
-<input type="text" id="surname" required><br><br>
-<label for="terminalSelect">Select Terminal:</label>
-<select id="terminalSelect">
-<option value="batangas">Batangas Grand Terminal</option>
-<option value="calamba">Calamba SM Terminal</option>
-<option value="lipa">Lipa SM Terminal</option>
-</select><br><br>
-<label for="paymentSelect">Select Payment Method:</label>
-<select id="paymentSelect">
-<option value="cash">Cash</option>
-<option value="debit">Debit</option>
-<option value="credit">Credit</option>
-</select><br><br>
-<p id="fareDisplay">Total Fare: ₱0</p>
-<p id="selectedSeats">Selected Seats: </p>
-<div id="ticketDetails"></div>
-</div>
-<!-- Right Section -->
-<div class="box right-section">
-<h3>Choose Seats:</h3>
-<div id="seatGrid"></div><br>
-<button id="reserveButton">Reserve Seats</button>
-</div>
-</div>
-<script src="script.js"></script>
+    <h1>Basta Bus!</h1>
+    <p><i>Because basta may byahe, Andyan kami!</i></p>
+    <div class="container">
+        
+        <div class="box left-section">
+            <h3>User Details</h3>
+            <label for="name">First Name:</label>
+            <input type="text" id="name" required><br>
+            <label for="surname">Last Name:</label>
+            <input type="text" id="surname" required><br><br>
+
+            <label for="terminalSelect">Select Terminal:</label>
+            <select id="terminalSelect">
+                <option value="batangas">Batangas Grand Terminal</option>
+                <option value="calamba">Calamba SM Terminal</option>
+                <option value="lipa">Lipa SM Terminal</option>
+            </select><br><br>
+
+            
+            <label for="busTypeSelect">Select Bus Type:</label>
+            <select id="busTypeSelect">
+                <option value="ordinary">Ordinary Bus</option>
+                <option value="ac">Air Conditioned Bus (₱50/seat additional fee)</option>
+            </select><br><br>
+            
+
+            <label for="paymentSelect">Select Payment Method:</label>
+            <select id="paymentSelect">
+                <option value="cash">Cash</option>
+                <option value="debit">Debit</option>
+                <option value="credit">Credit</option>
+            </select><br><br>
+
+            
+            <label for="scheduleDate">Select Schedule Date:</label>
+            <input type="date" id="scheduleDate" required><br><br>
+            
+
+            <p id="fareDisplay">Total Fare: ₱0</p>
+            <p id="selectedSeats">Selected Seats: </p>
+
+            <div id="ticketDetails"></div>
+        </div>
+
+        
+        <div class="box right-section">
+            <h3>Choose Seats:</h3>
+            <div id="seatGrid"></div><br>
+            <button id="reserveButton">Reserve Seats</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
-</html> 
+</html>
+
