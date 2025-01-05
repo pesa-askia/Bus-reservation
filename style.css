@@ -1,0 +1,108 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    }
+    h1 {
+    text-align: center;
+    }
+    .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    }
+    .box {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #e7f0f1; /* Updated background color */
+    }
+    .left-section {
+    display: flex;
+    flex-direction: column;
+    width: 55%; /* Increased width for the left section */
+    }
+   .right-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%; /* Slightly reduced width for the right section */
+   }
+   .row {
+   display: flex;
+   justify-content: center;
+   margin-bottom: 10px;
+}
+  .seat {
+  padding: 10px;
+  margin: 5px;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #89ccee;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition for background color and pop-up effect */
+
+}
+ .seat:hover {
+  background-color: #5aa7d8; /* Change to blue when hovered */
+  transform: translateY(-5px); /* Move the button up slightly */
+}
+ .seat.selected {
+  background-color: #5aa7d8; /* Change to blue when selected */
+  transform: translateY(-5px); /* Keep the "pop-up" effect when selected */
+}
+  .seat.reserved {
+  background-color: gray;
+}
+ .seat:disabled {
+ background-color: lightgray;
+ cursor: not-allowed;
+}
+ #reserveButton {
+ background-color: #89ccee; /* Updated to light blue */
+ color: #000;
+ border: none;
+ padding: 15px 20px;
+ font-size: 18px;
+ font-weight: bold;
+ border-radius: 5px;
+ cursor: pointer;
+ transition: transform 0.2s ease, background-color 0.2s ease;
+}
+ #reserveButton:hover {
+ background-color: #5aa7d8;
+ transform: scale(1.1);
+}
+.ticketDetails {
+ margin-top: 20px;
+ padding: 15px;
+ border: 1px solid #000;
+ text-align: left;
+ background-color: #f5f5f5;
+ border-radius: 5px;
+ font-size: 14px;
+ width: 100%; /* Ensures the ticket details fit the left container */
+ box-sizing: border-box;
+}
+ .ticketHeader {
+ font-weight: bold;
+ font-size: 1.2em;
+ margin-bottom: 10px;
+}
+ .reservedSeatText {
+ margin-top: 20px;
+ font-style: italic;
+ font-weight: bold; /* Make text bold */
+} 
+
+
+
+
+
+    
