@@ -104,4 +104,33 @@ const fares = {
 	alert('Please provide your name and select at least one seat.');
 	return;
 	}
-	
+    reservedSeats = reservedSeats.concat(selectedSeats);
+    localStorage.setItem('reservedSeats', JSON.stringify(reservedSeats));
+    const terminal = document.getElementById('terminalSelect').value;
+    const paymentMethod = document.getElementById('paymentSelect').value;
+    const ticketID = 'TICKET-' + Math.floor(Math.random() * 100000);
+    const ticket = `
+    <div class="ticketDetails">
+    <div class="ticketHeader">Ticket ID: ${ticketID}</div>
+    <div>Name: ${name} ${surname}</div>
+    <div>Terminal: ${terminal.charAt(0).toUpperCase() + terminal.slice(1)} SM Terminal</div>
+    <div>Seats: ${selectedSeats.join(', ')}</div>
+    <div>Payment Method: ${paymentMethod.charAt(0).toUpperCase() + paymentMethod.slice(1)}</div>
+    <div>Fare: ₱${fares[terminal] * selectedSeats.length}</div>
+    </div>
+    <div class="reservedSeatText">Have a safe trip!</div>
+    `;
+    ticketDetails.innerHTML = ticket;
+    selectedSeats = [];
+    renderSeatGrid();
+    updateSelectedSeatsText();
+    updateFareDisplay();
+    // Clear user details automatically after reservation
+    document.getElementById('name').value = '';
+    document.getElementById('surname').value = '';
+    document.getElementById('terminalSelect').selectedIndex = 0;
+    document.getElementById('paymentSelect').selectedIndex = 0;
+    }
+    }
+    reserveButton.addEventListener('click', reserveTicket);
+    renderSeatGrid(); 
